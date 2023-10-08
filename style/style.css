@@ -1,0 +1,103 @@
+/* Estilos gerais */
+body {
+    background-color: #000; /* Fundo preto */
+    color: #fff; /* Texto branco */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Fonte semelhante à usada na Netflix */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Define a altura mínima da viewport */
+  }
+  
+  /* Estilizando a barra de navegação semelhante à Netflix */
+  .nav {
+    background-color: rgba(0, 0, 0, 0.85); /* Fundo escuro com transparência */
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  /* Estilizando os links do menu */
+  .nav__menu-item {
+    display: inline-block;
+    margin: 0 20px; /* Espaçamento entre os itens */
+  }
+  
+  /* Estilizando os links do menu no hover */
+  .nav__menu-item a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    transition: color 0.3s;
+  }
+  
+  /* Estilizando os links do menu no hover (cor vermelha) */
+  .nav__menu-item a:hover {
+    color: #e50914; /* Vermelho semelhante à Netflix */
+  }
+  
+  /* Estilizando o título principal */
+  h1 {
+    text-align: center;
+    font-size: 36px;
+    margin: 30px 0;
+  }
+  
+  /* Estilizando o rodapé */
+  .footer {
+    background-color: #111;
+    padding: 40px 0;
+    text-align: center;
+    color: #757575;
+    margin-top: auto; /* Coloca o rodapé no final da página */
+    word-break: keep-all;
+  }
+  
+  .footer__copyright {
+    margin-top: 30px;
+    font-size: 14px;
+  }
+
+  /* Estilizando um botão fictício (personalize conforme necessário) */
+  .button {
+    display: inline-block;
+    background-color: #e50914;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+  }
+  
+  /* Estilizando o botão no hover */
+  .button:hover {
+    background-color: #b5070f; /* Tonalidade mais escura de vermelho */
+  }
+
+  /* Estilizando o vídeo */
+  iframe {
+    width: 90%; /* Aumenta o tamanho do vídeo horizontalmente */
+    max-width: 1200px; /* Define um tamanho máximo para o vídeo */
+    height: 500px; /* Aumenta a altura do vídeo */
+    margin: 20px auto; /* Centraliza horizontalmente o vídeo */
+    display: block; /* Remove margens extras de elementos inline */
+  }
+  /* Estilos para a imagem */
+/* Estilos para a imagem */
+.img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    min-height: calc(10vh - 10px); /* Ajusta a altura da imagem considerando a altura do menu */
+}
+
+/* Estilos para a imagem dentro da classe .img */
+.img img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
