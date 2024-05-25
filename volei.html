@@ -26,41 +26,61 @@
             height: 100%;
             width: 100%;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
         .video-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100%;
+            flex: 1;
             width: 100%;
         }
         .video-js {
             width: 100%;
             height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover; /* Ensure the video covers the container while maintaining its aspect ratio */
+        }
+        /* Media queries for better responsiveness on mobile devices */
+        @media (max-width: 768px) {
+            .video-js {
+                height: auto;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1 style="display:none;">DengoTV</h1> <!-- Hidden header to save screen space -->
+    <header style="display:none;">
+        <h1>DengoTV</h1> <!-- Hidden header to save screen space -->
     </header>
 
     <!-- HTML for Video -->
     <main class="video-container">
         <video id="hls-example" class="video-js vjs-default-skin" controls>
             <source src="https://edge-aws.aovivotv.xyz/hls/s:51.15.40.23/sportv2_22ab0e43_3c9894445b3603d5435cf14f4de4198b9715796d/playlist.m3u8?sk=def50200c4710478b8b3a00f84cc179671b4f9c8e6f4251780e6fa59585c122a403d78038d30723503d66c0ddea902abb0987425f6122de28a8f0a7f0214c4bb5fd90532c0fda890fab773452758035aa6386e855930e9bb86dfb870e743ab94c57c613002cfd809afde823236046ffb70afe261be905a8cc7ea52fb0a6a6532f73d0746fba929e3e42018f299d18fea4dbee7d7aba320d197e766f309028821e69f7bde28ef3c4e526e6a41d2cd19c3bbabeee0ca380e77dc9e6c8c212d0a09cce5dbde11f9e0eade45124e33bf930db923c81f79c56173215fe228f657abbe40ddad4349fa1ca77e9e82190cd3acd5ad18baad08494669df4f09b3d5bd7624d1f1074e459141691ba43632933f21b750a1e56a37c95e3d1c376c536b9b10b92b85ab10291aeccfc5bcbf714635e979579d4b3e" type="application/x-mpegURL">
-            Your browser does not support the video tag.
+            Seu navegador não suporta a tag de vídeo.
         </video>
     </main>
 
     <!-- JS code for Video.js -->
-    <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
-    <script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.js"></script>
     <script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.14.1/videojs-contrib-hls.min.js"></script>
     <script>
         var player = videojs('hls-example');
-        player.play();
+
+        // Add error handling
+        player.on('error', function() {
+            console.log('Video.js error:', player.error());
+        });
+
+        // Attempt to play the video after it has been loaded
+        player.ready(function() {
+            player.play().catch(function(error) {
+                console.error('Error attempting to play:', error);
+            });
+        });
     </script>
     <footer class="footer">
         <h3>DengoTV feito para meu nenem ter acesso com o maior conforto aos seus conteudos preferidos</h3>
